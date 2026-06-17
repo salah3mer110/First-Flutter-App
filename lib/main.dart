@@ -4,10 +4,36 @@ void main() {
   runApp(
     const MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Text('Hello world!'),
-        ),
+        body: GradientContainer(),
       ),
     ),
   );
+}
+
+class GradientContainer extends StatelessWidget {
+  const GradientContainer({super.key});
+  @override
+  Widget build(context) {
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(255, 26, 0, 70),
+            Color.fromARGB(255, 45, 7, 85),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: const Center(
+        child: Text(
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 28,
+          ),
+          'Hello world!',
+        ),
+      ),
+    );
+  }
 }
